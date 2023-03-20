@@ -1,0 +1,1 @@
+Hello Node.js (fs1.js 파일에서 읽음)

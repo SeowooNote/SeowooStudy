@@ -1,0 +1,219 @@
+Node.js
+    백엔드 개발자가 사용하는 언어
+    서버에서 실행되는 자바스크립트
+    Google V8 JavaScript 엔진을 사용하여 코드를 실행하고 기본 모듈이 자바스크립트로 사용
+    웹 서버(apache, tomcat, iis, zeus ...)와 같은 소프트웨어가 필요없이 웹 서버 역할을 할 수 있는 내장 라이브러리가 있음
+    NPM 이라는 패키지 관리자가 포함되어 있음, NPM은 node.js의 프로그램을 설치하고 관리하는데 사용
+    Node.js 다운로드 사이트 : http://nodejs.org(LTS 버전 다운로드)
+
+[Node.js 버전 확인]
+    node -v
+[NPM 버전 확인]
+    npm -v
+[package.json 파일 만들기 & Node 서버 설치]
+    package.json 파일은 모듈을 관리하는 설정 파일
+    npm init (옵션을 직접 제공)
+    npm init -y (기본값을 기준으로 바로 생성)
+[Node.js 실행하는 방법]
+    node 파일이름
+[실행 중지]
+    ctrl + c
+
+FileSystem 모듈
+    파일처리와 관련된 모듈
+    Node.js에서 가장 중요하고 기초가 되는 모듈
+
+    [메소드]
+        readFile() : 파일을 비동기적으로 읽음
+        readFileSync() : 파일을 동기적으로 읽음
+        writeFile() : 파일을 비동기적으로 씀
+        writeFileSync() : 파일을 동기적으로 씀
+
+        * 동기와 비동기
+            동기식 : 프로그램이 동작하는 상태에서 완전히 해당 내용을 끝내고 다음으로 제어를 넘기는 방식 (순서가 있음, 속도가 느림)
+            비동기식 : 동작이 끝나지 않은 상태에서도 제어권을 넘긴 후 프로그램을 계속 진행 (순서가 없을 수 있음, 속도가 빠름)
+    
+    [예외 처리(Exception)]
+        프로그램이 실행되고 있는 런터임시에 에러가 발생할 경우 처리할 수 있는 프로그램의 구간을 의미
+        동기식 예외처리에 사용 (비동기식은 if문)
+
+        try{
+            예외 상황이 발생했을 경우 처리할 문장1
+            예외 상황이 발생했을 경우 처리할 문장2
+            예외 상황이 발생했을 경우 처리할 문장3
+            ...
+        }catch(e){
+            예외 상황이 발생하거나 발생하지 않아도 무조건 실행될 문장 (생략 가능)
+        }
+    
+events 모듈
+    이벤트 위주의 프로그램을 작성할 때 사용하는 모듈
+
+    [이벤트 루프(Event Loop)]
+        Node.js는 서버가 가동되면 변수들을 초기화하고 함수를 선언하고 이벤트가 발생할 때까지 기다림
+        이벤트가 감지되었을 때 call back 함수를 호출
+    
+    [메소드]
+        on() : 지정한 이벤트의 리스너를 추가
+        once() : 지정한 이벤트의 리스너를 추가하지만, 한번 실행 이후 자동 제거
+        removelistener() : 지정한 이벤트에 대한 리스너를 제거
+        emit() : 지정한 이벤트를 발생
+
+    [시스템 이벤트]    
+        process 객체는 Node에서 항상 사용할 수 있는 객체
+        on()과 emit() 메소드는 객체를 생성하거나 모듈을 가져오지 않아도 사용할 수 있음
+        on() 메소드를 호출하면서 이벤트 이름을 exit로 지정하면 내부적으로 프로세스가 끝날 때를 알 수 있음
+
+http 모듈
+    Node.js에서 가장 기본적이고 중요한 서버 모듈
+    HTTP 웹 서버를 생성하는 것과 관련된 모든 기능을 담당
+
+    *HTTP
+        하이퍼텍스트 전송 프로토콜
+        HTML과 같은 하이퍼미디어 문서를 전송하기 위한 어플리케이션 레리어 프로토콜을 말함
+        웹 브라우저와 웹 서버간의 통신을 위해 설계됨
+
+    [server 객체]
+        http 모듈의 createServer() 메소드를 사용하여 server 객체를 생성
+
+        [메소드]
+            listen() : 서버를 실행하고 클라이언트를 기다림
+            close() : 서버를 종료
+
+        [이벤트]
+            request : 클라이언트가 서버에 요청할 때 발생하는 이벤트
+            connection : 클라이언트가 접속할 때 발생하는 이벤트
+            close : 서버가 종료될 때 발생하는 이벤트
+    
+    [request 객체]
+        클라이언트가 서버에 요청할 때 발생하는 메세지(정보)를 담는 객체
+
+        [속성]
+            method : 클라이언트 요청 방식을 나타냄 (GET, POST)
+            url : 클라이언트가 요청한 URL을 나타냄
+
+            ex. http://www.naver.com/blog/index?userid=apple&username=홍길동
+                <-------------------------------------------------------->
+                                            URI
+                <------------------------------>
+                              URL
+                                    <---------->
+                                      pathname     
+
+    [response 객체]           
+        서버에서 클라이언트로 응답 메세지를 전송시켜주는 객체
+
+        [메소드]
+            writeHead() : 응답 헤더를 작성
+            end() : 응답 본문을 작성
+
+        [MIME 형식]
+            text/plain : 일반적인 text 파일
+            text/html : html 형식 파일
+            text/css : css 형식 파일
+            text/xml : xml 형식 파일
+            image/jpeg : jpeg 이미지 파일
+            image/png : png 이미지 파일
+            video/mpeg : mpeg 동영상 파일
+            audio/mp3 : mp3 음악 파일
+            ...
+
+express 모듈
+    http 모듈만 사용해서 웹 서버를 구성하면 직접 많은 기능을 개발해야 함
+    이 문제를 해결하기 위해 만들어진 모듈이 express 모듈임
+    express 모듈을 사용하면 간단한 코드로 웹 서버의 기능을 대부분 구현할 수 있고,
+    미들웨어와 라우터를 사용하여 편리하게 웹 서버를 구성할 수 있음
+
+    [메소드]
+        use() : 미들웨어 함수를 사용
+        get() : get으로 사용자 정보를 전달받음 (실행)
+        set() : 서버 설정을 위한 속성을 설정
+        redirect() : 웹 페이지의 경로를 강제로 이동시킴
+        send() : 클라이언트에 응답 데이터를 보냄
+                 전달할 수 있는 데이터는 html, buffer, json, json 배열... 등
+        header() : 헤더를 확인
+
+    [GET 과 POST]
+        ex. http://localhost:3000/?userid=apple
+            const userid = req.query.userid;
+            query : 클라이언트에서 GET방식으로 전송한 요청 파라미터를 확인
+            const userid = req.body.userid;
+            body : 클라이언트에서 POST방식으로 전송한 요청 파라미터를 확인
+            (단, POST방식을 통한 요청 파라미터를 확인하려면 body-parser와 같은 모듈을 사용해야 함(설치))
+            postman : 로글인, 회원가입 등을 입력하는 창을 만들어주는 툴 (GET방식은 사용안해도 됨, POST방식에 사용(POST - body - x-www-form-urlencoded))
+            postman 사이트 : http://www.postman.com/downloads/
+    
+    [REST]
+        Representational State Transfer의 약자
+        자원을 이름으로 구분하여 해당 자원의 상태를 주고 받는 것을 의미
+    
+    [CRUD 연산]
+        CREATE : 생성(POST)
+        READ : 조회(GET)
+        UPDATE : 수정(PUT)
+        DELETE : 삭제(DELETE)
+
+    [Router 미들웨어]
+        사용자의 다양한 요청이 들어왔을때 use() 메소드로 설정한 미들웨어가 항상 호출되는 불편한 점이 있음
+        이를 해결하고자 사용하는 미들웨어가 Router 미들웨어임
+
+        * Router 객체 만들기
+            const router객체 = express.Router();
+
+            ex. http://localhost:3000/member/login
+                router객체.route(요청패스).get(실행할 함수);
+                router객체.route(요청패스).post(실행할 함수);
+        
+        * express에 Router 객체 적용
+            app.use('/', router객체);
+    
+EJS(Embedded JavaScript) 모듈
+    템플릿 엔진 모듈
+    템플릿 엔진 모듈은 특정한 형식인 파일로부터 HTML 페이지를 생성하는 모듈
+
+    * 템플릿 엔진
+        view를 구현하기 위한 템플릿
+
+    [EJS 파일 형식의 특수 코드]
+        <% ~~~ code ~~~ %> : 자바스크립트 코드를 입력하는 영역
+        <%=변수 or 값%> : 데이터를 출력
+        <%-변수 or 객체%> : ejs파일 전체를 전달
+
+    [EJS 데이터를 전달]
+        render() : 메소드의 매개 변수에 전달하고자 하는 데이터를 입력하여 전달
+        ex. esj.render(data);
+
+    [Jade 파일]
+    간략한 표현으로 HTML 구성 -> JavaScript 함수로 변환
+    PUG(구 Jade)
+    Jade 문법 참고 사이트 : http://pugjs.org/
+
+사용자 정의 모듈
+    사용자가 직접 만들어 코드를 관리할 수 있도록 작성하는 모듈
+
+    [모듈 작성 방법 1]
+        module.export = ()=>{
+            모듈내의 코드1
+            모듈내의 코드2
+            ...
+        }
+        [사용]
+        const 객체명 = require('파일명');
+
+    [모듈 작성 방법 2]
+        모듈내의 코드1
+        모듈내의 코드2
+        ...
+        module.export = 변수;
+        [사용]
+        const 객체명 = require('파일명');
+    
+    * Nodeman 사용
+        서버 코드를 변경할때마다 재시작하도록 하는 모듈 (자동화)
+        
+        npm install -g Nodeman (-g 글로벌 설치)
+        "start": "nodemon 1_mail.js"
+        npm start 터머널에서 실행
+
+JSON(JavaScript Object Notation)
+    데이터를 교환하고 저장하기 위해 만들어진 텍스트 기반의 데이터 교환 표준
