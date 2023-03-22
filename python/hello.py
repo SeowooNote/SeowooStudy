@@ -89,13 +89,18 @@ a = "a:b:c:d"
 print(a.split(":"))
 
 # list
-a = []
-print(a)
-b = [1, 2, 3]
-print(b)
-c = ['Life', 'is', 'too', 'short']
+a = [] # 빈값
+print(a) 
+b = [1, 2, 3] # 숫자
+print(b) 
+c = ['Life', 'is', 'too', 'short'] # 문자
 print(c)
-d = [1, 2, 'life', 'is']
+d = [1, 2, 'life', 'is'] # 숫자 + 문자
 print(d)
-e = [1, 2, ['life', 'is']]
+e = [1, 2, ['life', 'is']] # 숫자 + 문자 / list 안에 list를 넣을 수 있음
 print(e)
+print(e[2]) # list안에 list를 불러오기 1
+print(e[2][0]) # list안에 list를 불러오기 2
+f = [1, 2, 3]
+g = [4, 5, 6]
+print(f + g) # list들 끼리 합치기
