@@ -87,3 +87,15 @@ a = "life is too short"
 print(a.split())
 a = "a:b:c:d"
 print(a.split(":"))
+
+# list
+a = []
+print(a)
+b = [1, 2, 3]
+print(b)
+c = ['Life', 'is', 'too', 'short']
+print(c)
+d = [1, 2, 'life', 'is']
+print(d)
+e = [1, 2, ['life', 'is']]
+print(e)
