@@ -104,3 +104,14 @@ print(e[2][0]) # list안에 list를 불러오기 2
 f = [1, 2, 3]
 g = [4, 5, 6]
 print(f + g) # list들 끼리 합치기
+i = ['가', '나', '다']
+i[0:2] = ['라', '마']
+print(i)
+k = ['가', '나', '다']
+del k[0]
+print(k)
+k.append('라')
+print(k)
+l = [1, 5, 3]
+l.sort()
+print(l)
