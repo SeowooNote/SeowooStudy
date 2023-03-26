@@ -1,0 +1,83 @@
+React
+    React는 페이스북에서 만든 자바스크립트 라이브러리
+    페이스북에서 자체적으로 이용되고 있을 뿐 아니라, 많은 웹 어플리케이션이 React로 만들어짐
+    "React는 유저 인터페이스를 만들 수 있는 라이브러리입니다."
+        사용자에게 보여지는 UI를 만들고 사용자가 클릭을 하거나 이벤트가 발생하게 되면 그 이벤트에
+        맞게 반응하도록 만들어진 라이브러리
+
+    [웹/앱]
+        웹 어플리케이션을 만들 때 MVC패턴을 사용
+                    MVC 패턴
+        Model        View       Controller
+                 (React가 담당)
+        *React는 사용자에게 UI를 보여주고 이벤트를 처리하는 일들을 할 수 있음
+            React : 웹 어플리케이션 UI 개발
+            React Native : 모바일 어플리케이션
+            React + Electron : 데스크탑 어플리케이션
+    
+    [Component]
+        하나의 기능을 수행하는 UI단위(JavaScript에서는 함수의 의미와 유사)
+        서로 독립적이고 재사용이 가능한 것을 의미
+                        Root(최상위)
+            header       content        footer
+        logo    menu article article
+
+    [React 확장자]
+        JSX : 화면에 출력되는 리액트 컴포넌트
+        JS : 자료 및 기타 등의 프로그래밍(JavaScript)
+    
+    [React Tool]
+        1. 노드 : 자바스크립트를 실행할 수 있는 환경
+        2. yarn : npm보다 성능을 개선하고 보안 이슈를 해결한 페이스북에서 만든 새로운 패키지 매니저
+                  yarn은 npm 위에서 동작하기 때문에 npm이 설치되어 있어야 함(npm i)
+                  package.json을 사용하면서 npm을 호환하며 사용
+            [yarn 설치]
+                npm i yarn --global
+           npm
+           npx
+        3. 터미널 : 운영체제에서 프로그램을 실행할 수 있는 환경
+                  cd 경로 : 해당 디렉토리로 이동
+                  cd .. : 상위 디렉토리로 이동
+                  c: : c드라이브로 이동
+        4. 깃 : 버전관리를 할 수 있는 툴
+        5. 크롬 브라우저 : React Developer Tools(웹스토어)
+        6. Visual Studio Code : Reactjs Code snippets
+                                auto import
+    
+    [React 프로젝트 설치]
+        create react-app : 페이스북에서 만든 React를 개발하는 개발자들이 공통적으로 사용하는
+                           유용한 툴을 한번에 자동으로 설치할 수 있도록 도와주는 툴
+        yarn creat react-app 프로젝트명
+        cd 프로젝트명
+            : 프로젝트 폴더가 새로 생성되므로 폴더로 이동해서 React 실행
+        [.gitinore]
+            명시되어 있는 파일들을 깃에 저장하지 않음
+        [package.json]
+            npm에서 버전을 관리할 때 프로젝트에서 외부적으로 쓰고 있는 라이브러리의 버전들과 스크립트들이 명시되어 있음
+            복구시 node.js처럼 npm i를 터미널에 입력하여 환경을 복구
+            참고로 저장하거나 업로드할 때는 node_modules폴더를 삭제하는데데, 위의 명렁대로 하면 복구됨
+        [README.me]
+            프로젝트에 대한 설명을 명시하는 파일
+        [public 디렉토리]
+            사용자에게 배포할 때 외부적으로 보여지는 리소스들을 포함하는 디렉토리(HTML)
+        [src 디렉토리]
+            소스코드를 포함하는 디렉토리(실제 작업하는 폴더)
+        [숨겨진 툴]
+            BABEL : JavaScript 트랜스컴파일러
+                    ECMA Script 2015버전 코드를 이전 버전으로 변환해주는 툴
+            Webpack : 소스코드나 리소스 이미지들을 한번에 묶어서 번들단위로 사용자에게 제공할 수 있도록 도와주는 툴
+                      또한 JavaScript 코드를 줄여주고 긴 변수나 함수의 이름을 해커들이 알아볼 수 없도록 변경해주는 역할
+            ESLint : 코드에 잘못된 점이 있으면 경고를 표시해주는 툴
+            Jest : 코드를 작성할 때 유닛 테스트를 할 수 있도록 해주는 툴
+            PostCSS : CSS 전처리기 중 하나임
+                      정해진 프레임워크에 따라 CSS를 작성하면 그 CSS를 브라우저가 이해할 수 있는 CSS코드로 변환
+    
+    [JSX]
+        React와 마찬가지로 페이스북에서 개발한 확장 구문
+        [JSX 문법]
+            태그는 꼭 닫혀야 함
+            두개 이상의 태그는 무조건 하나의 태그로 감싸야 함
+                불필요한 div를 사용하지 않으려면 <>를 사용(단순 그룹화)
+            주석은 {/* */}로 표현
+            CSS 속성은 스네이크 표기법 -> 카멜 표기법
+                backgorund-color -> backgroundColor

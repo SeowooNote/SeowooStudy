@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수(문자열형데이터타입)</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        // 숫자형
+        let num1 = 10;
+        const num2 = 20;
+
+        // 문자열형
+        let str1 = 'Hello JavaScript';
+        var str2 = 'Hello World';
+        const str3 = '100';
+
+        // 연산
+        console.log(num1 + num2); // 30 / 데이터타입 : 숫자형
+        console.log(num1 + str1); // 10Hello JavaScript / 데이터타입 : 문자열형 / 숫자 + 문자열 연산은 결과가 문자열형으로 출력
+        console.log(num1 + ''); // 10 / 데이터타입 : 문자열형
+
+        console.log(typeof(num1)); // numebr       
+        console.log(typeof(num1 + '')); // string   
+
+        console.log(str1 + ' ' + str2); // Hello JavaScript Hello World / 공백활용 가능(띄어쓰기)
+        console.log(str1 + '\n' + str2); /* Hello JavaScript
+                                            Hello World        / 줄바꿈 가능 */
+
+        // 변수값을 객체로 사용
+        console.log("str1이라는 변수값 : " + str1); // str1이라는 변수값 : Hello JavaScript
+        console.log(`str1이라는 변수값 : ${str1}`); // str1이라는 변수값 : Hello JavaScript
+
+        console.log("num1" + "+" + "num2" + "=" + (num1 + num2)); // num1+num2=20
+        console.log(num1 + "+" + num2 + "=" + (num1 + num2)); // 10+20=30
+        console.log(`num1 + num2 = ${num1 + num2}`); // num1 + num2 = 20
+        console.log(`${num1} + ${num2} = ${num1 + num2}`); // 10 + 20 = 30
+    </script>    
+</body>
+</html>

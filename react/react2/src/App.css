@@ -1,0 +1,19 @@
+.box{
+  background-color: cornflowerblue;
+  width: 100px;
+  height: 40px;
+  padding: 10px;
+  text-align: center;
+  line-height: 40px;
+}
+.header{
+  width: 100%;
+  height: 200px;
+  background-color: gray;
+}
+.headerIn{
+  margin: 0 auto;
+  width: 1000px;
+  height: 200px;
+  background-color: lightslategray;
+}
