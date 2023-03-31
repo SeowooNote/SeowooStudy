@@ -1,7 +1,12 @@
 import React from "react";
 
 function Product(){
-    <div className="product"></div>
+    return(
+        <>
+            <div className="mainImg"></div>
+            <div className="product">product</div>
+        </>
+    );
 }
 
 export default Product;

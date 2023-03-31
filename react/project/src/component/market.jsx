@@ -1,7 +1,12 @@
 import React from "react";
 
 function Market(){
-    <div className="market"></div>
+    return(
+        <>
+            <div className="mainImg"></div>
+            <div className="market">market</div>
+        </>
+    );
 }
 
 export default Market;

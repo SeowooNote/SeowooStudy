@@ -1,7 +1,12 @@
 import React from "react";
 
 function Delivery(){
-    <div className="delivery"></div>
+    return(
+        <>
+        <div className="mainImg"></div>
+        <div className="delivery">delivery</div>
+        </>
+    );
 }
 
 export default Delivery;

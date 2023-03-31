@@ -2,7 +2,10 @@ import React from "react";
 
 function Membership(){
     return(
-        <div className="membership"></div>
+        <>
+            <div className="mainImg"></div>
+            <div className="membership">membership</div>
+        </>
     );
 }
 
