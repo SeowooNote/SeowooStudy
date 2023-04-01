@@ -81,3 +81,33 @@ React
             주석은 {/* */}로 표현
             CSS 속성은 스네이크 표기법 -> 카멜 표기법
                 backgorund-color -> backgroundColor
+
+    
+
+    [Hooks]
+        [정의]
+            기존에는 Class형 컴포넌트에서만 상태를 관리 및 여러 기능을 함수형 컴포넌트에서 사용할 수 있게 됨
+            '함수형 컴포넌트에서 상태를 관리하는 함수'
+            '상태관리란? 대상이 하나일때는 변수를 의미하며, 일반적으로 값을 저장하는 것이 아니라 상황에 따라서 값을 바꾸게 하는데 있어 사용'
+
+        [메소드]
+            useState : 동적 상태 관리
+            useEffect : Side effect를 수행 - mount/unmount/update -> 특정 이벤트 및 특정 상황에 따라 화면에 보여주는 방식
+            useContext : 컴포넌트를 중첩하지 않고도 전역 값을 쉽게 관리 -> 변수 및 상황에 따른 값을 전역으로 사용하게 하는 함수(DB라고 생각하면 쉬움)
+
+            useReducer : 복잡한 컴포넌트들의 상태(state)를 관리 및 분리
+            useCallback : 특정 함수를 재사용
+            useMemo : 연산한 값을 재사용
+            useRef : DOM선택, 컴포넌트 안에서 조회 / 수정 할 수 있는 변수 관리
+            uselmperativeHandle
+            useLayoutEffect
+            useDebugValue       
+
+        [Hooks 함수를 사용하는 이유]
+            코드가 간결해짐
+            가독성이 좋아짐
+            많은 라이브러리들도 Hooks로만 나오고 있음
+            HOC 헬을 벗어 날 수 있음
+            불필요한 것 같은 코드를 적을 필요가 없다.
+        
+        http://learnjs.vlpt.us/ 자바스크립트 공부 참고 사이트 (비구조화 할당 문법, spread 와 rest 문법, scope 의 이해 part)
