@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import './App.css';
 
 import Counter from './component/counter';
@@ -7,6 +7,11 @@ import MultiInput from './component/multiinput'
 import UserList1 from './component/userlist1';
 import CreateUser from './component/createuser';
 import UserList2 from './component/userlist2';
+
+function countActiveUser(users){
+  console.log('선택된 사용자 수를 세는중...');
+  return users.filter(user => user.active).length;
+}
 
 function App() {
   const [input, setInput] = useState({
@@ -52,24 +57,40 @@ function App() {
     }
   ]);
 
-  const nextId = useRef(6);
+  const nextId = useRef(6); // 새로 추가된 데이터의 배열속성에서 id값을 의미 -> id: nextId == id: 6
 
+  // 새로운 배열요소 생성
   const onCreate = ()=>{
     const user = {
       id: nextId,
       username,
       email
     }
-    setUsers(users.concat(user));
+    // 배열에 삽입
+    // setUsers([...user, user])
+    setUsers(users.concat(user)); // concat : 배열 합치기
 
     setInput({
       username: '',
       email: ''
     });
 
-    nextId.current += 1;
+    nextId.current += 1; // 배열요소의  id값을 다음에 입력될 요소의 id값으로 증가
   }
 
+  const count = useMemo(()=>countActiveUser(users), [users]);
+
+  // 리스트 선택시 변환효과를 주는 함수
+  const onToggle = (id)=>{
+    setUsers(
+      users.map(user => user.id === id ? {...user, active: !user.active} : user)
+    );
+  }
+
+  // 리스트 삭제 함수
+  const onRemove = (id)=>{
+    setUsers(users.filter(user => user.id !== id));
+  }
 
   return (
     <>
@@ -89,7 +110,8 @@ function App() {
         onCreate={onCreate}
       />
       <hr/>
-      <UserList2 users={users}/>
+      <UserList2 users={users} onRemove={onRemove} onToggle={onToggle}/>
+      <div>선택된 사용자 수 : {count}</div>
     </>
   );
 }
