@@ -1,0 +1,27 @@
+.mainImg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contents{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contents_h{
+    width: 1120px;
+    height: 100px;
+    background-color: white;
+}
+
+.contents_h h3{font-size: 32px;}
+.contents_h span{font-size: 17px;}
+
+.contents_area{
+    background-color: aliceblue;
+    width: 1120px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
