@@ -26,7 +26,10 @@ public class variable {
         // int num!;
 
         // 3. 변수명의 첫글자는 숫자가 올 수 없음
-        // iny 1number;
+        // int 1number;
+
+        // 4. 변수명은 대소문자를 구분함
+        // int Number;   int NUmber; 
 
         // 변수 명명 규칙
         // 1. Camel Case : 띄어쓰기 위치를 표현하기 위해 뒤에 오는 단어릐 첫글자를 대문자료 표기
