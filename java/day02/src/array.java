@@ -38,6 +38,11 @@ public class array {
         // 배열 길이
         System.out.println(scores.length);
 
+        // 배열의 인덱스 범위를 벗어나는 접근을 시도 할 때
+        // ArrayIndexOutOfBoundException이 발생함
+        // System.out.println(scores[scores.length]);
+        // System.out.println(scores[-1]);
+
         // 문자열
         char[] apple = new char[5];
         apple[0] = 'a';
@@ -59,6 +64,59 @@ public class array {
         // String 변수명 = "데이터";
         String carrot = "carrot";
         System.out.println(carrot);
+
+        System.out.println("==========");
+
+        String stringVariable1 = new String("안녕하세요");
+        System.out.println(stringVariable1);
+
+        String stringVariable2 = stringVariable1;
+
+        stringVariable1 = new String("반갑습니다.");
+        System.out.println(stringVariable1);
+        System.out.println(stringVariable2);
+
+        System.out.println("==========");
+
+        // String 클래스의 기능
+        // 1. 문자열 연결 - 문자열 + 문자열; / 문자열.concat(연결할 문자열);
+        String identityNumber = "900101" + "-";
+        System.out.println(identityNumber);
+        identityNumber = identityNumber.concat("1122334");
+        System.out.println(identityNumber);
+
+        // 2, 문자열 비교 - 문자열.equals(비교할 문자열);
+        boolean isEqual = identityNumber.equals("900101-1122334");
+        System.out.println(isEqual);
+
+        // 3. 문자열 길이 - 문자열.length();
+        int stringLength = identityNumber.length();
+        System.out.println(stringLength);
+
+        // 4. 문자열 반환 -
+        // 문자열.toLowerCase(); - 전부 소문자
+        // 문자열.toUpperCase(); - 전부 대문자
+        String name = "Do Gyeong Rok";
+        String lowerName = name.toLowerCase();
+        String upperName = name.toUpperCase();
+
+        System.out.println(name);
+        System.out.println(lowerName);
+        System.out.println(upperName);
+
+        // 5. 무자 찾기 - 문자열.indexOf(찾을 문자), 문자열.lastIndexOf(찾을 문자)
+        int hyphenIndex1 = identityNumber.indexOf("-");
+        System.out.println(hyphenIndex1);
+        int hyphenIndex2 = identityNumber.indexOf("0");
+        System.out.println(hyphenIndex2);   // 처음 찾은 인덱스 위치값을 반환하여 출력
+
+        int zeroLastIndex = identityNumber.lastIndexOf("0");
+        System.out.println(zeroLastIndex);
+
+        // 6. 부분 문자열 - 문자열.substring(시작인덱스, 끝인덱스);
+        String birthString = identityNumber.substring(0, 6);
+        System.out.println(birthString);
+
     }
 
 }
