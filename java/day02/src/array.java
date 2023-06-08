@@ -104,7 +104,7 @@ public class array {
         System.out.println(lowerName);
         System.out.println(upperName);
 
-        // 5. 무자 찾기 - 문자열.indexOf(찾을 문자), 문자열.lastIndexOf(찾을 문자)
+        // 5. 문자 찾기 - 문자열.indexOf(찾을 문자), 문자열.lastIndexOf(찾을 문자)
         int hyphenIndex1 = identityNumber.indexOf("-");
         System.out.println(hyphenIndex1);
         int hyphenIndex2 = identityNumber.indexOf("0");
@@ -117,6 +117,39 @@ public class array {
         String birthString = identityNumber.substring(0, 6);
         System.out.println(birthString);
 
+        System.out.println("==========");
+
+        // 기본형 데이터 타입과 참조형 데이터 타입의 비교
+        // 기본형 데이터 타입은 직접 그 데이터를 가지고 있음
+        // 참조형 데이터 타입은 데이터가 저장된 주소를 가지고 있음
+        int basicType1 = 10;
+        int basicType2 = basicType1;
+
+        System.out.println(basicType1);
+        System.out.println(basicType2);
+
+        basicType1 = 20;
+
+        System.out.println(basicType1);
+        System.out.println(basicType2);
+
+        char[] refferenceType1 = new char[] {'a', 'b', 'c'};
+        char[] refferenceType2 = refferenceType1;
+
+        System.out.println(refferenceType1);
+        System.out.println(refferenceType2);
+
+        refferenceType1[0] = 'z';
+
+        System.out.println(refferenceType1);
+        System.out.println(refferenceType2);
+
+        // 참조형 데이터 타입에서의 null;
+        // null : 값이 지정되지 않았다, 참조하는 주소가 없다
+        String nullString = null;
+        // null 이거나 생성하지 않은 참조형 변수를 사용하려면
+        // NullPointerException이 발생함
+        boolean nullEqual = nullString.equals("0");
     }
 
 }
