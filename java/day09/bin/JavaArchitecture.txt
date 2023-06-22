@@ -1,0 +1,12 @@
+JavaArchitecture
+    - utils (공통적인 메서드나 클랙스를 관리하는 패키지)
+    - dto (Data Transfer Object, 데이터 전송 객체)
+    - controller (입력과 관련된 클래스들의 집합)
+    - service (실제 비지니스 로직을 담당하는 클래스들의 집합)
+    - repository / dao(Data Access Object) (데이터베이스 접근 객체)
+    - provider (특정한 객체를 생성하는 클래스들의 집합)
+    - handler (각종 이벤트 처리를 담당하는 클래스들의 집합)
+    - exception (커스텀 예외 처리를 담당하는 클래스들의 집합)
+    - filter (Spring 에서만 적용 - 입력 이전의 필터링 처리를 담당하는 공간)
+    - config (각종 설정과 관련된 클래스들의 집합)
+    - entity (데이터베이스 테이블 매핑을 위한 클래스들의 집합)
